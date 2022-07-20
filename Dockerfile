@@ -12,7 +12,7 @@ RUN mvn clean package
 From openjdk:8-jre-alpine
 
 # copy jar from the first stage
-COPY --from=builder target/meventest-1.0-SNAPSHOT.jar meventest-1.0-SNAPSHOT.jar
+COPY --from=builder target/maventest-1.0-SNAPSHOT.jar maventest-1.0-SNAPSHOT.jar
 
 EXPOSE 8080
 
