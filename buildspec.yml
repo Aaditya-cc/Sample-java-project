@@ -9,7 +9,7 @@ env:
 
 phases:
   pre_build:
-    command:
+    commands:
       - echo "Logging into DOCKERHUB.."
       - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
   build:
