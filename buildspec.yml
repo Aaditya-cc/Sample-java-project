@@ -15,9 +15,9 @@ phases:
   build:
     commands:
       - echo "Building a Docker image.."
-      - docker build -t $DOCKERHUB_REPOSITORY:$CODEBUILD_BUILD_ID .
+      - docker build -t $DOCKERHUB_REPOSITORY:$CODEBUILD_RESOLVED_SOURCE_VERSION .
   post_build:
     commands:
       - echo "Pushing Docker image to DOCKERHUB.."
-      - docker push $DOCKERHUB_REPOSITORY:$CODEBUILD_BUILD_ID
+      - docker push $DOCKERHUB_REPOSITORY:$CODEBUILD_RESOLVED_SOURCE_VERSION
 
