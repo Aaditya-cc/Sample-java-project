@@ -3,9 +3,9 @@ version: 0.2
 env:
   shell: bash
   secrets-manager:
-    DOCKERHUB_USERNAME: Aaditya_docker_secrets:DOCKERHUB_USERNAME
-    DOCKERHUB_PASSWORD: Aaditya_docker_secrets:DOCKERHUB_PASSWORD
-    DOCKERHUB_REPOSITORY: Aaditya_docker_secrets:DOCKERHUB_REPOSITORY
+    DOCKERHUB_USERNAME: docker_secrets:DOCKERHUB_USERNAME
+    DOCKERHUB_PASSWORD: docker_secrets:DOCKERHUB_PASSWORD
+    DOCKERHUB_REPOSITORY: docker_secrets:DOCKERHUB_REPOSITORY
 
 phases:
   pre_build:
