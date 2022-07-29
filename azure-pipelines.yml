@@ -9,7 +9,7 @@ resources:
 - repo: self
 
 variables:
-  IMAGE_NAME: $(ImageName)
+  ImageName: 'aaditya7789/maventest'
 
 stages:
 - stage: Build
@@ -34,7 +34,7 @@ stages:
       displayName: Build and Push docker image
       inputs:
         command: buildAndPush
-        repository: $(IMAGE_NAME)
+        repository: $(ImageName)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         containerRegistry: dockerhub
         tags: |
