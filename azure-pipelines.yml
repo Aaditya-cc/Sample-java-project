@@ -8,8 +8,8 @@ trigger:
 resources:
 - repo: self
 
-variables:
-  ImageName: 'aaditya7789/maventest'
+#variables:
+##  ImageName: 'aaditya7789/maventest'
 
 stages:
 - stage: Build
