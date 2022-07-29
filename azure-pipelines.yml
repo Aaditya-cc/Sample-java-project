@@ -9,7 +9,6 @@ resources:
 - repo: self
 
 variables:
-  ImageName: '$(DOCKERHUB_REPOSITORY_NAME)'
   tag: '$(Build.BuildId)'
 
 stages:
@@ -25,7 +24,7 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        repository: $(ImageName)
+        repository: $(DOCKERHUB_REPOSITORY_NAME)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
@@ -33,7 +32,7 @@ stages:
       displayName: Push the Docker image to Dockerhub
       inputs:
         containerRegistry: 'dockerhub'
-        repository: $(ImageName)
+        repository: $(DOCKERHUB_REPOSITORY_NAME)
         command: push
         tags: |
           $(tag)
