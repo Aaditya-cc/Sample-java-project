@@ -25,7 +25,7 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        repository: $(imageName)
+        repository: $(ImageName)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
@@ -33,7 +33,7 @@ stages:
       displayName: Push the Docker image to Dockerhub
       inputs:
         containerRegistry: 'dockerhub'
-        repository: $(imageName)
+        repository: $(ImageName)
         command: 'push'
         tags: |
           $(tag)
