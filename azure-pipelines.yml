@@ -8,8 +8,8 @@ trigger:
 resources:
 - repo: self
 
-#variables:
-##  ImageName: 'aaditya7789/maventest'
+variables:
+  IMAGE_NAME: $(ImageName)
 
 stages:
 - stage: Build
@@ -34,7 +34,7 @@ stages:
       displayName: Build and Push docker image
       inputs:
         command: buildAndPush
-        repository: $(ImageName)
+        repository: $(IMAGE_NAME)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         containerRegistry: dockerhub
         tags: |
