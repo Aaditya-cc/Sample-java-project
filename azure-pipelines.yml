@@ -10,7 +10,6 @@ resources:
 
 variables:
   ImageName: 'aaditya7789/maventest'
-  tag: '$(Build.BuildId)'
 
 stages:
 - stage: Build
@@ -21,6 +20,17 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+    - task: Bash@3
+      displayName: Get short git hash
+      env: { sourceVersion: $(Build.SourceVersion) }
+      workingDirectory: $(Build.SourcesDirectory)
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo $sourceVersion
+          commitHash=${sourceVersion:0:8}
+          echo $commitHash
+          echo "##vso[task.setvariable variable=commitHash]$commitHash" ## Set variable for using in other tasks.
     - task: Docker@2
       displayName: Build and Push docker image
       inputs:
@@ -29,5 +39,5 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         containerRegistry: dockerhub
         tags: |
-          $(tag)
+          $(commitHash)
         
