@@ -9,8 +9,8 @@ resources:
 - repo: self
 
 variables:
-  ImageName: $(DOCKERHUB_REPOSITORY_NAME)
-  tag: $(Build.BuildId)
+  ImageName: '$(DOCKERHUB_REPOSITORY_NAME)'
+  tag: '$(Build.BuildId)'
 
 stages:
 - stage: Build
@@ -34,7 +34,7 @@ stages:
       inputs:
         containerRegistry: 'dockerhub'
         repository: $(ImageName)
-        command: 'push'
+        command: push
         tags: |
           $(tag)
         
