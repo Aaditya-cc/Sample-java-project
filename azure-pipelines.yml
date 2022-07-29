@@ -9,7 +9,7 @@ resources:
 - repo: self
 
 variables:
-  ImageName: '$(DOCKERHUB_ REPOSITORY_NAME):$(Build.BuildId)'
+  ImageName: '$(DOCKERHUB_REPOSITORY_NAME):$(Build.BuildId)'
 
 stages:
 - stage: Build
