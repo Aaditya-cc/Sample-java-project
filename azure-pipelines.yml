@@ -29,7 +29,7 @@ stages:
           echo $sourceVersion
           commitHash=${sourceVersion:0:8}
           echo $commitHash
-          echo "##vso[task.setvariable variable=commitHash]$commitHash" ## Set variable for using in other tasks.
+          echo "##vso[task.setvariable variable=commitHash]$commitHash"
     - task: Docker@2
       displayName: Build and Push docker image
       inputs:
