@@ -23,7 +23,6 @@ stages:
     - task: Bash@3
       displayName: Get short git hash
       env: { sourceVersion: $(Build.SourceVersion) }
-      workingDirectory: $(Build.SourcesDirectory)
       inputs:
         targetType: 'inline'
         script: |
